@@ -12,11 +12,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-connectDB();
+await connectDB();
 
 app.get("/", (req, res) => {
   console.log("Inside  / route");
-  res.send("API is running...");
+  res.send(`API is running... ${process.env.MONGODB_URI}`);
 });
 
 app.use("/api/auth", authRoutes);
