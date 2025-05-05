@@ -16,7 +16,7 @@ await connectDB();
 
 app.get("/", (req, res) => {
   console.log("Inside  / route");
-  res.send(`API is running... ${process.env.MONGODB_URI}`);
+  res.send(`API is running...`);
 });
 
 app.use("/api/auth", authRoutes);
