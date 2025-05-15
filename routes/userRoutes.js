@@ -12,7 +12,7 @@ import { getContactProfile } from "../controllers/contactController.js";
 import multer from "multer";
 
 const router = express.Router();
-const upload = multer({ dest: "uploads/" });
+const upload = multer({ dest: "../uploads/" });
 
 router
   .route("/profile")

@@ -30,7 +30,7 @@ router.route("/add-member").post(addMemberToGroup);
 router.route("/remove-member").post(removeMemberFromGroup);
 router.route("/leave-group").post(leaveGroup);
 
-const upload = multer({ dest: "uploads/" });
+const upload = multer({ dest: "../uploads/" });
 
 router
   .route("/update-group-image")
