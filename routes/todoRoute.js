@@ -7,21 +7,18 @@ import {
   updateTodoItem,
   getTodo,
 } from "../controllers/todoController.js";
-import { authMiddleware } from "../middlewares/authMiddleware.js";
+import { protect } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
-router
-  .route("/")
-  .get(authMiddleware, getTodos)
-  .post(authMiddleware, createTodo);
+router.route("/").get(protect, getTodos).post(protect, createTodo);
 
 router
   .route("/:id")
-  .get(authMiddleware, getTodo)
-  .put(authMiddleware, updateTodo)
-  .delete(authMiddleware, deleteTodo);
+  .get(protect, getTodo)
+  .put(protect, updateTodo)
+  .delete(protect, deleteTodo);
 
-router.route("/:id/items/:itemId").put(authMiddleware, updateTodoItem);
+router.route("/:id/items/:itemId").put(protect, updateTodoItem);
 
 export default router;

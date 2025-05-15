@@ -5,14 +5,11 @@ import {
   updateSchedule,
   deleteSchedule,
 } from "../controllers/scheduleController.js";
-import { authMiddleware } from "../middlewares/authMiddleware.js";
+import { protect } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
-router
-  .route("/")
-  .get(authMiddleware, getSchedules)
-  .post(authMiddleware, createSchedule);
+router.route("/").get(protect, getSchedules).post(protect, createSchedule);
 
 router.route("/:id").put(updateSchedule).delete(deleteSchedule);
 

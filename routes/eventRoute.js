@@ -6,14 +6,11 @@ import {
   updateEvent,
   deleteEvent,
 } from "../controllers/eventController.js";
-import { authMiddleware } from "../middlewares/authMiddleware.js";
+import { protect } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
-router
-  .route("/")
-  .get(authMiddleware, getEvents)
-  .post(authMiddleware, createEvent);
+router.route("/").get(protect, getEvents).post(protect, createEvent);
 
 router.route("/:id").get(getEventById).put(updateEvent).delete(deleteEvent);
 
