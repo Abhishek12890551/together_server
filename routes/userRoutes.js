@@ -12,7 +12,7 @@ import { getContactProfile } from "../controllers/contactController.js";
 import multer from "multer";
 
 const router = express.Router();
-const upload = multer({ dest: "../uploads/" });
+const upload = multer({ dest: "uploads/" });
 
 router
   .route("/profile")
@@ -24,6 +24,7 @@ router
 
 router.route("/contact/:contactId").get(protect, getContactProfile);
 
+// Online status routes
 router.route("/online").post(protect, markUserOnline);
 router.route("/offline").post(protect, markUserOffline);
 router.route("/status/:userId").get(protect, getUserOnlineStatus);
