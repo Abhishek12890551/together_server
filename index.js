@@ -572,6 +572,14 @@ app.get("/health", (req, res) => {
   });
 });
 
+app.use("/", (req, res) => {
+  res.status(200).json({
+    message: "Welcome to the Together API",
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+  });
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/todos", todoRoutes);
 app.use("/api/events", eventRoutes);
