@@ -33,8 +33,6 @@ const io = new Server(server, {
   pingInterval: 25000,
 });
 
-export { io };
-
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -556,6 +554,8 @@ io.on("connection", (socket) => {
   });
 });
 
+export { io };
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -604,3 +604,5 @@ const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+export default app;
