@@ -32,14 +32,14 @@ router.route("/leave-group").post(leaveGroup);
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../uploads/");
+    cb(null, "./uploads/");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + "-" + file.originalname);
   },
 });
 const upload = multer({ storage: storage });
-
+ 
 router
   .route("/update-group-image")
   .post(protect, upload.single("groupImage"), updateGroupImage);
