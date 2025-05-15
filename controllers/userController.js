@@ -54,7 +54,7 @@ const uploadProfileImage = asyncHandler(async (req, res) => {
     }
 
     const result = await cloudinary.uploader.upload(req.file.path, {
-      folder: "together_app/profiles",
+      folder: "upload/",
       resource_type: "image",
       transformation: [
         { width: 500, height: 500, crop: "limit" },
