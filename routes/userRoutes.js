@@ -10,17 +10,26 @@ import {
 } from "../controllers/userController.js";
 import { getContactProfile } from "../controllers/contactController.js";
 import multer from "multer";
+import fs from "fs";
 
-const router = express.Router();
+const uploadDir = "/tmp/uploads"
+
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./uploads/");
+    cb(null, uploadDir);
+    // cb(null, "./uploads/");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + "-" + file.originalname);
   },
 });
 const upload = multer({ storage: storage });
+
+const router = express.Router();
 
 router
   .route("/profile")

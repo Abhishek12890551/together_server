@@ -12,6 +12,27 @@ import {
   updateGroupImage,
 } from "../controllers/conversationController.js";
 import { protect } from "../middlewares/authMiddleware.js";
+import fs from "fs";
+
+const uploadDir = "/tmp/uploads"
+
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, uploadDir);
+    // cb(null, "./uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
+
+
+
 
 const router = express.Router();
 
@@ -29,16 +50,6 @@ router.route("/:conversationId/messages").get(getConversationMessages);
 router.route("/add-member").post(addMemberToGroup);
 router.route("/remove-member").post(removeMemberFromGroup);
 router.route("/leave-group").post(leaveGroup);
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "./uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + "-" + file.originalname);
-  },
-});
-const upload = multer({ storage: storage });
  
 router
   .route("/update-group-image")
