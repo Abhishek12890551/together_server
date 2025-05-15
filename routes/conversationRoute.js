@@ -1,5 +1,4 @@
 import express from "express";
-import multer from "multer";
 import {
   getConversations,
   getConversationMessages,
@@ -12,25 +11,7 @@ import {
   updateGroupImage,
 } from "../controllers/conversationController.js";
 import { protect } from "../middlewares/authMiddleware.js";
-import fs from "fs";
-
-const uploadDir = "/tmp/uploads"
-
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
-}
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    // cb(null, uploadDir);
-    cb(null, "./uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + "-" + file.originalname);
-  },
-});
-const upload = multer({ storage: storage });
-
+import {upload} from "../middlewares/multer.js"
 
 
 

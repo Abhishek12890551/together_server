@@ -62,7 +62,7 @@ const uploadProfileImage = asyncHandler(async (req, res) => {
       ],
     });
 
-    // fs.unlinkSync(req.file.path);
+    fs.unlinkSync(req.file.path);
 
     user.profileImageUrl = result.secure_url;
     await user.save();
