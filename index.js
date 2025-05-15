@@ -5,8 +5,6 @@ import http from "http";
 import { Server } from "socket.io";
 import jwt from "jsonwebtoken";
 import { v2 as cloudinary } from "cloudinary";
-import multer from "multer";
-const upload = multer({ dest: "uploads/" });
 
 import connectDB from "./config/db.js";
 
