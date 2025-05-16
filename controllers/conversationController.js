@@ -13,7 +13,25 @@ export const getConversations = async (req, res) => {
       })
       .sort({ "lastMessage.timestamp": -1, updatedAt: -1 });
 
-    res.status(200).json(conversations);
+    // Compute unread count per conversation for the current user
+    const convsWithUnread = conversations.map((conv) => {
+      const convObj = conv.toObject();
+      const unreadCount = (convObj.messages || []).reduce((count, msg) => {
+        const senderIdStr = msg.senderId.toString();
+        const readByIds = Array.isArray(msg.readBy)
+          ? msg.readBy.map((rb) => rb.toString())
+          : [];
+        if (
+          senderIdStr !== req.userId.toString() &&
+          !readByIds.includes(req.userId.toString())
+        ) {
+          return count + 1;
+        }
+        return count;
+      }, 0);
+      return { ...convObj, unreadCount };
+    });
+    res.status(200).json(convsWithUnread);
   } catch (error) {
     console.error(
       "ConversationController: Error fetching conversations:",
@@ -89,6 +107,7 @@ export const getConversationMessages = async (req, res) => {
     await Conversation.populate(conversation, [
       { path: "messages.senderId", select: "name email profileImageUrl" },
       { path: "messages.readBy", select: "name _id" },
+      { path: "messages.deliveredTo", select: "_id" },
     ]);
 
     let messagesToReturn = [...conversation.messages].sort(
@@ -121,6 +140,9 @@ export const getConversationMessages = async (req, res) => {
             }
           : null,
         readBy: msg.readBy ? msg.readBy.map((user) => user._id.toString()) : [],
+        deliveredTo: msg.deliveredTo
+          ? msg.deliveredTo.map((user) => user._id.toString())
+          : [],
         conversationId: conversation._id.toString(),
       }))
       .sort(

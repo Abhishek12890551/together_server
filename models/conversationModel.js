@@ -18,6 +18,12 @@ const messageSubSchema = new mongoose.Schema(
         ref: "User",
       },
     ],
+    deliveredTo: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
     timestamp: {
       type: Date,
       default: Date.now,

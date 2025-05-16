@@ -282,19 +282,26 @@ io.on("connection", (socket) => {
         socket.emit("newConversationCreated", populatedConversation);
       }
 
+      // Retrieve the saved message with its real _id
+      const savedConversation = await Conversation.findById(
+        actualConversationId
+      ).populate("messages.senderId", "name profileImageUrl");
+      const newMsgDoc =
+        savedConversation.messages[savedConversation.messages.length - 1];
       const messageToSend = {
-        _id: new Date().getTime().toString(),
-        content: content,
-        timestamp: new Date().toISOString(),
+        _id: newMsgDoc._id.toString(),
+        content: newMsgDoc.content,
+        timestamp: newMsgDoc.timestamp.toISOString(),
         sender: {
-          _id: socket.userId,
-          name: socket.user.name,
-          profileImageUrl: socket.user.profileImageUrl,
+          _id: newMsgDoc.senderId._id.toString(),
+          name: newMsgDoc.senderId.name,
+          profileImageUrl: newMsgDoc.senderId.profileImageUrl,
         },
         conversationId: actualConversationId,
         readBy: [socket.userId],
+        deliveredTo: [],
       };
-
+      // Broadcast the message with the real ID
       io.to(actualConversationId).emit("newMessage", messageToSend);
       console.log(
         `Message broadcast to conversation room: ${actualConversationId}`
@@ -304,22 +311,21 @@ io.on("connection", (socket) => {
       socket.emit("messageError", { error: error.message });
     }
   });
+  // Handle messageRead
   socket.on("messageRead", async (data) => {
     try {
       const { conversationId, messageId } = data;
       console.log(
         `Marking message as read. ConversationID: ${conversationId}, MessageID: ${messageId}`
       );
-
       const conversation = await Conversation.findById(conversationId);
       if (!conversation) {
         console.error(`Conversation not found: ${conversationId}`);
         return;
       }
-
       let messageFound = false;
       conversation.messages = conversation.messages.map((message) => {
-        if (message._id.toString() === messageId || message._id === messageId) {
+        if (message._id.toString() === messageId) {
           messageFound = true;
           if (!message.readBy.includes(socket.userId)) {
             message.readBy.push(socket.userId);
@@ -328,36 +334,53 @@ io.on("connection", (socket) => {
         }
         return message;
       });
-
       if (!messageFound) {
         console.warn(
           `Message ID ${messageId} not found in conversation ${conversationId}`
         );
         return;
       }
-
       await conversation.save();
-
       const updatedConversation = await Conversation.findById(conversationId)
         .populate("participants", "name email profileImageUrl")
         .populate("lastMessage.senderId", "name profileImageUrl");
-
-      socket.to(conversationId).emit("messageRead", updatedConversation);
-      socket.emit("messageRead", updatedConversation);
-
-      const participants = updatedConversation.participants.filter(
-        (participant) => participant._id.toString() !== socket.userId
-      );
-      participants.forEach((participant) => {
-        if (participant.socketId) {
-          socket
-            .to(participant.socketId)
-            .emit("messageRead", updatedConversation);
-        }
+      io.to(conversationId).emit("messageRead", {
+        conversationId,
+        messageId,
+        readBy: socket.userId,
+        timestamp: new Date().toISOString(),
       });
     } catch (error) {
       console.error("Error in messageRead handler:", error);
       socket.emit("error", { message: "Failed to mark message as read" });
+    }
+  });
+  // Handle messageDelivered acknowledgement
+  socket.on("messageDelivered", async ({ conversationId, messageId }) => {
+    console.log(
+      `Marking message as delivered. ConversationID: ${conversationId}, MessageID: ${messageId}`
+    );
+    try {
+      // Load the conversation and mark the subdocument
+      const conversation = await Conversation.findById(conversationId);
+      if (!conversation) {
+        console.error(`Conversation not found: ${conversationId}`);
+        return;
+      }
+      const msgDoc = conversation.messages.id(messageId);
+      if (msgDoc && !msgDoc.deliveredTo.includes(socket.userId)) {
+        msgDoc.deliveredTo.push(socket.userId);
+        await conversation.save();
+        io.to(conversationId).emit("messageDelivered", {
+          conversationId,
+          messageId,
+          deliveredBy: socket.userId,
+          timestamp: new Date().toISOString(),
+        });
+      }
+    } catch (error) {
+      console.error("Error in messageDelivered handler:", error);
+      socket.emit("error", { message: "Failed to mark message as delivered" });
     }
   });
   socket.on("typing", ({ conversationId, isTyping }) => {
