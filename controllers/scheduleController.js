@@ -2,10 +2,53 @@ import Schedule from "../models/scheduleModel.js";
 
 export const getSchedules = async (req, res) => {
   try {
-    const schedules = await Schedule.find({ userId: req.user._id });
-    res.status(200).json(schedules);
+    const queryConditions = { userId: req.user._id };
+    let isDateSpecificQuery = false; // Flag to check if it's a date-specific query
+
+    if (req.query.date) {
+      isDateSpecificQuery = true;
+      // req.query.date is expected to be in "YYYY-MM-DD" format
+      const requestedDateString = req.query.date;
+      const requestedDate = new Date(requestedDateString);
+
+      // Validate the date string
+      if (isNaN(requestedDate.getTime())) {
+        return res.status(400).json({
+          message: "Invalid date format provided. Please use YYYY-MM-DD.",
+        });
+      }
+
+      // Construct date range for the given day in UTC
+      // new Date("YYYY-MM-DD") parses as UTC midnight
+      const year = requestedDate.getUTCFullYear();
+      const month = requestedDate.getUTCMonth(); // 0-indexed
+      const day = requestedDate.getUTCDate();
+
+      const startDate = new Date(Date.UTC(year, month, day, 0, 0, 0, 0));
+      const endDate = new Date(Date.UTC(year, month, day, 23, 59, 59, 999));
+
+      queryConditions.date = {
+        $gte: startDate,
+        $lte: endDate,
+      };
+    }
+
+    const schedules = await Schedule.find(queryConditions).sort({
+      startTime: 1,
+    }); // Optional: sort by start time
+
+    if (isDateSpecificQuery) {
+      // If it's a date-specific query (e.g., from home page), wrap in 'data'
+      res.status(200).json({ data: schedules });
+    } else {
+      // Otherwise (e.g., from schedule page fetching all), return array directly
+      res.status(200).json(schedules);
+    }
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error("Error in getSchedules:", error);
+    res
+      .status(500)
+      .json({ message: "Failed to fetch schedules: " + error.message });
   }
 };
 
