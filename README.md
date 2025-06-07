@@ -144,7 +144,9 @@ npm run dev
 
 ---
 
-## ⚙️ ConfigurationCreate a `.env` file in the root directory with the following variables:
+## ⚙️ Configuration
+
+Create a `.env` file in the root directory with the following variables:
 
 ```env
 # 🗄️ Database Configuration
@@ -361,45 +363,42 @@ All errors return a consistent JSON format:
 ## 📁 Project Structure
 
 ```
-
-```
-
+together_server/
 ├── 📁 config/
-│ └── db.js # Database configuration
+│   └── db.js                 # Database configuration
 ├── 📁 controllers/
-│ ├── authController.js # Authentication logic
-│ ├── connectionController.js # Connection management
-│ ├── contactController.js # Contact operations
-│ ├── conversationController.js # Messaging logic
-│ ├── eventController.js # Event management
-│ ├── scheduleController.js # Schedule operations
-│ ├── todoController.js # Todo management
-│ └── userController.js # User operations
+│   ├── authController.js     # Authentication logic
+│   ├── connectionController.js # Connection management
+│   ├── contactController.js  # Contact operations
+│   ├── conversationController.js # Messaging logic
+│   ├── eventController.js    # Event management
+│   ├── scheduleController.js # Schedule operations
+│   ├── todoController.js     # Todo management
+│   └── userController.js     # User operations
 ├── 📁 middlewares/
-│ ├── authMiddleware.js # JWT authentication
-│ └── multer.js # File upload configuration
+│   ├── authMiddleware.js     # JWT authentication
+│   └── multer.js            # File upload configuration
 ├── 📁 models/
-│ ├── conversationModel.js # Chat/messaging schema
-│ ├── eventModel.js # Event schema
-│ ├── scheduleModel.js # Schedule schema
-│ ├── todoModel.js # Todo schema
-│ └── userModel.js # User schema
+│   ├── conversationModel.js # Chat/messaging schema
+│   ├── eventModel.js        # Event schema
+│   ├── scheduleModel.js     # Schedule schema
+│   ├── todoModel.js         # Todo schema
+│   └── userModel.js         # User schema
 ├── 📁 routes/
-│ ├── authRoute.js # Authentication routes
-│ ├── connectionRoute.js # Connection routes
-│ ├── conversationRoute.js # Messaging routes
-│ ├── eventRoute.js # Event routes
-│ ├── scheduleRoutes.js # Schedule routes
-│ ├── todoRoute.js # Todo routes
-│ └── userRoutes.js # User routes
+│   ├── authRoute.js         # Authentication routes
+│   ├── connectionRoute.js   # Connection routes
+│   ├── conversationRoute.js # Messaging routes
+│   ├── eventRoute.js        # Event routes
+│   ├── scheduleRoutes.js    # Schedule routes
+│   ├── todoRoute.js         # Todo routes
+│   └── userRoutes.js        # User routes
 ├── 📁 utils/
-│ ├── emailService.js # Email functionality
-│ └── validation.js # Input validation
+│   ├── emailService.js      # Email functionality
+│   └── validation.js       # Input validation
 ├── 📁 public/
-│ └── uploads/ # Local file storage
-├── 📄 index.js # Main server file
-└── 📄 package.json # Dependencies and scripts
-
+│   └── uploads/            # Local file storage
+├── 📄 index.js              # Main server file
+└── 📄 package.json         # Dependencies and scripts
 ```
 
 ---
@@ -408,13 +407,13 @@ All errors return a consistent JSON format:
 
 <div align="center">
 
-| Security Feature | Implementation |
-|:---|:---:|
-| **Password Hashing** | ![bcrypt](https://img.shields.io/badge/bcrypt-secured-green) |
-| **Authentication** | ![JWT](https://img.shields.io/badge/JWT-tokens-blue) |
-| **Input Validation** | ![Validator](https://img.shields.io/badge/validation-sanitized-orange) |
-| **Email Verification** | ![Email](https://img.shields.io/badge/email-verified-purple) |
-| **CORS Protection** | ![CORS](https://img.shields.io/badge/CORS-configured-red) |
+| Security Feature       |                             Implementation                             |
+| :--------------------- | :--------------------------------------------------------------------: |
+| **Password Hashing**   |      ![bcrypt](https://img.shields.io/badge/bcrypt-secured-green)      |
+| **Authentication**     |          ![JWT](https://img.shields.io/badge/JWT-tokens-blue)          |
+| **Input Validation**   | ![Validator](https://img.shields.io/badge/validation-sanitized-orange) |
+| **Email Verification** |      ![Email](https://img.shields.io/badge/email-verified-purple)      |
+| **CORS Protection**    |       ![CORS](https://img.shields.io/badge/CORS-configured-red)        |
 
 </div>
 
@@ -436,7 +435,7 @@ All errors return a consistent JSON format:
 
 [![Email](https://img.shields.io/badge/Email-mintu12890551%40gmail.com-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mintu12890551@gmail.com)
 
-*Full Stack Developer & Software Engineer*
+_Full Stack Developer & Software Engineer_
 
 ---
 
@@ -488,7 +487,7 @@ Or create an issue in the repository.
 
 **Make sure to configure all environment variables before running the application.**
 
-*The server will not start without proper MongoDB connection and JWT secret configuration.*
+_The server will not start without proper MongoDB connection and JWT secret configuration._
 
 ---
 
