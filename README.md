@@ -1,5 +1,3 @@
-<div align="left">
-
 # 🚀 Together Server API
 
 [![Node.js](https://img.shields.io/badge/Node.js-v18+-green.svg)](https://nodejs.org/)
@@ -13,8 +11,6 @@
 _Empowering connections, productivity, and collaboration through seamless real-time communication_
 
 [📚 Documentation](#-documentation) • [🚀 Quick Start](#-quick-start) • [🔧 API Reference](#-api-reference) • [👨‍💻 Developer](#-developer)
-
-</div>
 
 ---
 
@@ -128,11 +124,7 @@ cp .env.example .env
 npm run dev
 ```
 
-<div align="center">
-
 🎉 **Server running at** `http://localhost:5000`
-
-</div>
 
 ---
 
@@ -283,11 +275,7 @@ npm test    # Run tests (placeholder)
 
 ## 🌐 Socket.IO Events
 
-<div align="center">
-
 **Real-time communication powered by Socket.IO**
-
-</div>
 
 ### 🔌 Connection Events
 
@@ -311,11 +299,7 @@ All protected routes require a Bearer token in the Authorization header:
 Authorization: Bearer <your_jwt_token>
 ```
 
-<div align="center">
-
 🔑 **Tokens are issued upon successful login/registration and are valid for 28 days**
-
-</div>
 
 ### 📤 File Uploads
 
@@ -413,8 +397,6 @@ together_server/
 
 ## 👨‍💻 Developer
 
-<div align="center">
-
 ### **Abhishek Kumar**
 
 [![Email](https://img.shields.io/badge/Email-mintu12890551%40gmail.com-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mintu12890551@gmail.com)
@@ -425,17 +407,11 @@ _Full Stack Developer & Software Engineer_
 
 **"Building the future, one line of code at a time"**
 
-</div>
-
 ---
 
 ## 🤝 Contributing
 
-<div align="center">
-
 **We welcome contributions!**
-
-</div>
 
 1. 🍴 Fork the repository
 2. 🌿 Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -447,19 +423,13 @@ _Full Stack Developer & Software Engineer_
 
 ## 🆘 Support
 
-<div align="center">
-
 For support, please contact our development team:
 
 [![Email Support](https://img.shields.io/badge/Email_Support-mintu12890551%40gmail.com-blue?style=for-the-badge&logo=gmail)](mailto:mintu12890551@gmail.com)
 
 Or create an issue in the repository.
 
-</div>
-
 ---
-
-<div align="center">
 
 ### ⚠️ Important Note
 
@@ -470,5 +440,3 @@ _The server will not start without proper MongoDB connection and JWT secret conf
 ---
 
 **Made with ❤️ by [Abhishek Kumar](mailto:mintu12890551@gmail.com)**
-
-</div>
