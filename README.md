@@ -38,11 +38,11 @@ _Empowering connections, productivity, and collaboration through seamless real-t
 
 <div align="center">
 
-| 🔐 **Authentication** | 💬 **Messaging** |  🤝 **Social**   | ✅ **Productivity** |
-| :-------------------: | :--------------: | :--------------: | :-----------------: |
-|  JWT Authentication   |  Real-time Chat  | User Connections |   Todo Management   |
-|  Email Verification   | Group Messaging  | Friend Requests  |  Event Scheduling   |
-|  Profile Management   |   File Sharing   |  Contact System  |  Task Organization  |
+| 🔐 **Authentication** | 💬 **Messaging** | 🤝 **Social**    | ✅ **Productivity** |
+| --------------------- | ---------------- | ---------------- | ------------------- |
+| JWT Authentication    | Real-time Chat   | User Connections | Todo Management     |
+| Email Verification    | Group Messaging  | Friend Requests  | Event Scheduling    |
+| Profile Management    | File Sharing     | Contact System   | Task Organization   |
 
 </div>
 
@@ -95,16 +95,16 @@ _Empowering connections, productivity, and collaboration through seamless real-t
 
 <div align="center">
 
-| Category           |                                                                                            Technologies                                                                                            |
-| :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| **Runtime**        |                                                  ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white)                                                   |
-| **Framework**      |                                               ![Express.js](https://img.shields.io/badge/Express.js-404D59?style=flat&logo=express&logoColor=white)                                                |
+| Category           | Technologies                                                                                                                                                                                       |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Runtime**        | ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white)                                                                                                    |
+| **Framework**      | ![Express.js](https://img.shields.io/badge/Express.js-404D59?style=flat&logo=express&logoColor=white)                                                                                              |
 | **Database**       | ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white) ![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=flat&logo=mongoose&logoColor=white) |
-| **Real-time**      |                                               ![Socket.io](https://img.shields.io/badge/Socket.io-black?style=flat&logo=socket.io&badgeColor=010101)                                               |
-| **Authentication** |                         ![JWT](https://img.shields.io/badge/JWT-black?style=flat&logo=JSON%20web%20tokens) ![bcrypt](https://img.shields.io/badge/bcrypt-blue?style=flat)                          |
-| **Cloud Storage**  |                                               ![Cloudinary](https://img.shields.io/badge/Cloudinary-blue?style=flat&logo=cloudinary&logoColor=white)                                               |
-| **Email**          |                                                              ![Nodemailer](https://img.shields.io/badge/Nodemailer-0F9DCE?style=flat)                                                              |
-| **Validation**     |                                                              ![Validator](https://img.shields.io/badge/Validator.js-green?style=flat)                                                              |
+| **Real-time**      | ![Socket.io](https://img.shields.io/badge/Socket.io-black?style=flat&logo=socket.io&badgeColor=010101)                                                                                             |
+| **Authentication** | ![JWT](https://img.shields.io/badge/JWT-black?style=flat&logo=JSON%20web%20tokens) ![bcrypt](https://img.shields.io/badge/bcrypt-blue?style=flat)                                                  |
+| **Cloud Storage**  | ![Cloudinary](https://img.shields.io/badge/Cloudinary-blue?style=flat&logo=cloudinary&logoColor=white)                                                                                             |
+| **Email**          | ![Nodemailer](https://img.shields.io/badge/Nodemailer-0F9DCE?style=flat)                                                                                                                           |
+| **Validation**     | ![Validator](https://img.shields.io/badge/Validator.js-green?style=flat)                                                                                                                           |
 
 </div>
 
@@ -198,11 +198,11 @@ npm test    # Run tests (placeholder)
 <summary><strong>🔐 Authentication Endpoints</strong> <code>/api/auth</code></summary>
 
 | Method | Endpoint               | Description               | Auth Required |
-| :----: | :--------------------- | :------------------------ | :-----------: |
-| `POST` | `/register`            | Register a new user       |      ❌       |
-| `POST` | `/login`               | User login                |      ❌       |
-| `POST` | `/verify-email`        | Verify email with code    |      ❌       |
-| `POST` | `/resend-verification` | Resend verification email |      ❌       |
+| ------ | ---------------------- | ------------------------- | ------------- |
+| `POST` | `/register`            | Register a new user       | ❌            |
+| `POST` | `/login`               | User login                | ❌            |
+| `POST` | `/verify-email`        | Verify email with code    | ❌            |
+| `POST` | `/resend-verification` | Resend verification email | ❌            |
 
 </details>
 
@@ -210,14 +210,14 @@ npm test    # Run tests (placeholder)
 <summary><strong>👤 User Management</strong> <code>/api/users</code></summary>
 
 | Method | Endpoint                | Description            | Auth Required |
-| :----: | :---------------------- | :--------------------- | :-----------: |
-| `GET`  | `/profile`              | Get user profile       |      ✅       |
-| `PUT`  | `/profile`              | Update user profile    |      ✅       |
-| `POST` | `/upload-profile-image` | Upload profile image   |      ✅       |
-| `GET`  | `/contact/:contactId`   | Get contact profile    |      ✅       |
-| `POST` | `/online`               | Mark user as online    |      ✅       |
-| `POST` | `/offline`              | Mark user as offline   |      ✅       |
-| `GET`  | `/status/:userId`       | Get user online status |      ✅       |
+| ------ | ----------------------- | ---------------------- | ------------- |
+| `GET`  | `/profile`              | Get user profile       | ✅            |
+| `PUT`  | `/profile`              | Update user profile    | ✅            |
+| `POST` | `/upload-profile-image` | Upload profile image   | ✅            |
+| `GET`  | `/contact/:contactId`   | Get contact profile    | ✅            |
+| `POST` | `/online`               | Mark user as online    | ✅            |
+| `POST` | `/offline`              | Mark user as offline   | ✅            |
+| `GET`  | `/status/:userId`       | Get user online status | ✅            |
 
 </details>
 
@@ -225,69 +225,69 @@ npm test    # Run tests (placeholder)
 <summary><strong>🤝 Social Connections</strong> <code>/api/connections</code></summary>
 
 | Method | Endpoint    | Description                   | Auth Required |
-| :----: | :---------- | :---------------------------- | :-----------: |
-| `GET`  | `/search`   | Search for users              |      ✅       |
-| `POST` | `/request`  | Send connection request       |      ✅       |
-| `POST` | `/respond`  | Respond to connection request |      ✅       |
-| `GET`  | `/requests` | Get connection requests       |      ✅       |
-| `GET`  | `/contacts` | Get user contacts             |      ✅       |
+| ------ | ----------- | ----------------------------- | ------------- |
+| `GET`  | `/search`   | Search for users              | ✅            |
+| `POST` | `/request`  | Send connection request       | ✅            |
+| `POST` | `/respond`  | Respond to connection request | ✅            |
+| `GET`  | `/requests` | Get connection requests       | ✅            |
+| `GET`  | `/contacts` | Get user contacts             | ✅            |
 
 </details>
 
 <details>
 <summary><strong>💬 Conversations</strong> <code>/api/conversations</code></summary>
 
-|  Method  | Endpoint                    | Description                          | Auth Required |
-| :------: | :-------------------------- | :----------------------------------- | :-----------: |
-|  `GET`   | `/`                         | Get user conversations               |      ✅       |
-|  `GET`   | `/find/:otherUserId`        | Find conversation with specific user |      ✅       |
-|  `POST`  | `/group`                    | Create group conversation            |      ✅       |
-|  `GET`   | `/:conversationId`          | Get conversation by ID               |      ✅       |
-|  `GET`   | `/:conversationId/messages` | Get conversation messages            |      ✅       |
-|  `POST`  | `/add-member`               | Add member to group                  |      ✅       |
-|  `POST`  | `/remove-member`            | Remove member from group             |      ✅       |
-|  `POST`  | `/leave-group`              | Leave group                          |      ✅       |
-| `DELETE` | `/:id`                      | Delete group conversation            |      ✅       |
-|  `POST`  | `/update-group-image`       | Update group image                   |      ✅       |
+| Method   | Endpoint                    | Description                          | Auth Required |
+| -------- | --------------------------- | ------------------------------------ | ------------- |
+| `GET`    | `/`                         | Get user conversations               | ✅            |
+| `GET`    | `/find/:otherUserId`        | Find conversation with specific user | ✅            |
+| `POST`   | `/group`                    | Create group conversation            | ✅            |
+| `GET`    | `/:conversationId`          | Get conversation by ID               | ✅            |
+| `GET`    | `/:conversationId/messages` | Get conversation messages            | ✅            |
+| `POST`   | `/add-member`               | Add member to group                  | ✅            |
+| `POST`   | `/remove-member`            | Remove member from group             | ✅            |
+| `POST`   | `/leave-group`              | Leave group                          | ✅            |
+| `DELETE` | `/:id`                      | Delete group conversation            | ✅            |
+| `POST`   | `/update-group-image`       | Update group image                   | ✅            |
 
 </details>
 
 <details>
 <summary><strong>✅ Todo Management</strong> <code>/api/todos</code></summary>
 
-|  Method  | Endpoint             | Description       | Auth Required |
-| :------: | :------------------- | :---------------- | :-----------: |
-|  `GET`   | `/`                  | Get user todos    |      ✅       |
-|  `POST`  | `/`                  | Create new todo   |      ✅       |
-|  `GET`   | `/:id`               | Get specific todo |      ✅       |
-|  `PUT`   | `/:id`               | Update todo       |      ✅       |
-| `DELETE` | `/:id`               | Delete todo       |      ✅       |
-|  `PUT`   | `/:id/items/:itemId` | Update todo item  |      ✅       |
+| Method   | Endpoint             | Description       | Auth Required |
+| -------- | -------------------- | ----------------- | ------------- |
+| `GET`    | `/`                  | Get user todos    | ✅            |
+| `POST`   | `/`                  | Create new todo   | ✅            |
+| `GET`    | `/:id`               | Get specific todo | ✅            |
+| `PUT`    | `/:id`               | Update todo       | ✅            |
+| `DELETE` | `/:id`               | Delete todo       | ✅            |
+| `PUT`    | `/:id/items/:itemId` | Update todo item  | ✅            |
 
 </details>
 
 <details>
 <summary><strong>📅 Event Management</strong> <code>/api/events</code></summary>
 
-|  Method  | Endpoint | Description        | Auth Required |
-| :------: | :------- | :----------------- | :-----------: |
-|  `GET`   | `/`      | Get user events    |      ✅       |
-|  `POST`  | `/`      | Create new event   |      ✅       |
-|  `GET`   | `/:id`   | Get specific event |      ✅       |
-|  `PUT`   | `/:id`   | Update event       |      ✅       |
-| `DELETE` | `/:id`   | Delete event       |      ✅       |
+| Method   | Endpoint | Description        | Auth Required |
+| -------- | -------- | ------------------ | ------------- |
+| `GET`    | `/`      | Get user events    | ✅            |
+| `POST`   | `/`      | Create new event   | ✅            |
+| `GET`    | `/:id`   | Get specific event | ✅            |
+| `PUT`    | `/:id`   | Update event       | ✅            |
+| `DELETE` | `/:id`   | Delete event       | ✅            |
 
 </details>
 
 <details>
 <summary><strong>📋 Schedule Management</strong> <code>/api/schedules</code></summary>
 
-|  Method  | Endpoint | Description         | Auth Required |
-| :------: | :------- | :------------------ | :-----------: |
-|  `GET`   | `/`      | Get user schedules  |      ✅       |
-|  `POST`  | `/`      | Create new schedule |      ✅       |
-|  `PUT`   | `/:id`   | Update schedule     |      ✅       |
-| `DELETE` | `/:id`   | Delete schedule     |      ✅       |
+| Method   | Endpoint | Description         | Auth Required |
+| -------- | -------- | ------------------- | ------------- |
+| `GET`    | `/`      | Get user schedules  | ✅            |
+| `POST`   | `/`      | Create new schedule | ✅            |
+| `PUT`    | `/:id`   | Update schedule     | ✅            |
+| `DELETE` | `/:id`   | Delete schedule     | ✅            |
 
 </details>
 
@@ -407,13 +407,13 @@ together_server/
 
 <div align="center">
 
-| Security Feature       |                             Implementation                             |
-| :--------------------- | :--------------------------------------------------------------------: |
-| **Password Hashing**   |      ![bcrypt](https://img.shields.io/badge/bcrypt-secured-green)      |
-| **Authentication**     |          ![JWT](https://img.shields.io/badge/JWT-tokens-blue)          |
+| Security Feature       | Implementation                                                         |
+| ---------------------- | ---------------------------------------------------------------------- |
+| **Password Hashing**   | ![bcrypt](https://img.shields.io/badge/bcrypt-secured-green)           |
+| **Authentication**     | ![JWT](https://img.shields.io/badge/JWT-tokens-blue)                   |
 | **Input Validation**   | ![Validator](https://img.shields.io/badge/validation-sanitized-orange) |
-| **Email Verification** |      ![Email](https://img.shields.io/badge/email-verified-purple)      |
-| **CORS Protection**    |       ![CORS](https://img.shields.io/badge/CORS-configured-red)        |
+| **Email Verification** | ![Email](https://img.shields.io/badge/email-verified-purple)           |
+| **CORS Protection**    | ![CORS](https://img.shields.io/badge/CORS-configured-red)              |
 
 </div>
 
