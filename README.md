@@ -1,4 +1,4 @@
-<div align="center">
+<div align="left">
 
 # 🚀 Together Server API
 
@@ -461,12 +461,6 @@ _Full Stack Developer & Software Engineer_
 
 ---
 
-## 📄 License
-
-This project is licensed under the **ISC License**.
-
----
-
 ## 🆘 Support
 
 <div align="center">
@@ -494,4 +488,3 @@ _The server will not start without proper MongoDB connection and JWT secret conf
 **Made with ❤️ by [Abhishek Kumar](mailto:mintu12890551@gmail.com)**
 
 </div>
-```
