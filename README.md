@@ -36,15 +36,11 @@ _Empowering connections, productivity, and collaboration through seamless real-t
 
 ## ✨ Features
 
-<div align="center">
-
 | 🔐 **Authentication** | 💬 **Messaging** | 🤝 **Social**    | ✅ **Productivity** |
 | --------------------- | ---------------- | ---------------- | ------------------- |
 | JWT Authentication    | Real-time Chat   | User Connections | Todo Management     |
 | Email Verification    | Group Messaging  | Friend Requests  | Event Scheduling    |
 | Profile Management    | File Sharing     | Contact System   | Task Organization   |
-
-</div>
 
 ### 🔐 Authentication & User Management
 
@@ -93,8 +89,6 @@ _Empowering connections, productivity, and collaboration through seamless real-t
 
 ## 🛠️ Tech Stack
 
-<div align="center">
-
 | Category           | Technologies                                                                                                                                                                                       |
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Runtime**        | ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white)                                                                                                    |
@@ -105,8 +99,6 @@ _Empowering connections, productivity, and collaboration through seamless real-t
 | **Cloud Storage**  | ![Cloudinary](https://img.shields.io/badge/Cloudinary-blue?style=flat&logo=cloudinary&logoColor=white)                                                                                             |
 | **Email**          | ![Nodemailer](https://img.shields.io/badge/Nodemailer-0F9DCE?style=flat)                                                                                                                           |
 | **Validation**     | ![Validator](https://img.shields.io/badge/Validator.js-green?style=flat)                                                                                                                           |
-
-</div>
 
 ---
 
@@ -188,11 +180,7 @@ npm test    # Run tests (placeholder)
 
 ## 🔧 API Reference
 
-<div align="center">
-
 **Base URL:** `http://localhost:5000/api`
-
-</div>
 
 <details>
 <summary><strong>🔐 Authentication Endpoints</strong> <code>/api/auth</code></summary>
@@ -405,8 +393,6 @@ together_server/
 
 ## 🔐 Security
 
-<div align="center">
-
 | Security Feature       | Implementation                                                         |
 | ---------------------- | ---------------------------------------------------------------------- |
 | **Password Hashing**   | ![bcrypt](https://img.shields.io/badge/bcrypt-secured-green)           |
@@ -414,8 +400,6 @@ together_server/
 | **Input Validation**   | ![Validator](https://img.shields.io/badge/validation-sanitized-orange) |
 | **Email Verification** | ![Email](https://img.shields.io/badge/email-verified-purple)           |
 | **CORS Protection**    | ![CORS](https://img.shields.io/badge/CORS-configured-red)              |
-
-</div>
 
 - ✅ Password hashing with bcrypt
 - ✅ JWT token authentication
